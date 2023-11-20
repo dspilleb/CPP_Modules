@@ -15,7 +15,6 @@ class Zombie
 		void announce( void );
 		static Zombie *newZombie( std::string name);
 		static void randomChump( std::string name);
-		Zombie ( void );
 		Zombie( std::string name );
 		~Zombie( void );
 };
