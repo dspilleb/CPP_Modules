@@ -10,6 +10,7 @@ class Weapon{
 		const	std::string& getType( void );
 		void	setType( std::string new_type );
 		Weapon( std::string set_type);
+		Weapon( void );
 		~Weapon( void );
 };
 

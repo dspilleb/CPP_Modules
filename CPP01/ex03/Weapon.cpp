@@ -6,15 +6,15 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:20:04 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/11/20 16:23:47 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/11/20 17:34:42 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon( std::string set_type )
+Weapon::Weapon ( void )
 {
-	this->type = set_type;
+	this->type = "Default";
 	return;
 }
 
@@ -23,10 +23,15 @@ Weapon::~Weapon( void )
 	return;
 }
 
+Weapon::Weapon( std::string set_type )
+{
+	this->type = set_type;
+	return;
+}
+
 const std::string& Weapon::getType( void )
 {
-	std::string& weapon_reference = this->type;
-	return (weapon_reference);
+	return (this->type);
 }
 
 void Weapon::setType( std::string new_type )
