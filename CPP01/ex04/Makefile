@@ -1,6 +1,6 @@
 NAME = main
 
-SRC = main.cpp
+SRC = main.cpp replace.cpp
 
 GCC = c++ -std=c++98 -Wall -Wextra -Werror
 
