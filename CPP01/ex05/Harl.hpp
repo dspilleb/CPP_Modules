@@ -4,6 +4,7 @@
 # include <iostream>
 
 class Harl{
+
 	private:
 		void debug( void );
 		void info( void );
