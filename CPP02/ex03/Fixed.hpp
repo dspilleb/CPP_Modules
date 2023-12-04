@@ -21,7 +21,6 @@ class Fixed
 		void setRawBits( int const raw );
 		float toFloat( void ) const;
 		int toInt( void ) const;
-		// Ajouter min/max
 		bool operator>(Fixed const &second) const;
 		bool operator<(Fixed const &second) const;
 		bool operator>=(Fixed const &second) const;
@@ -32,13 +31,15 @@ class Fixed
 		Fixed operator-(Fixed const &second) const;
 		Fixed operator*(Fixed const &second) const;
 		Fixed operator/(Fixed const &second) const;
+		Fixed& operator++();
+		Fixed operator++( int );
+		Fixed& operator--();
+		Fixed operator--( int );
+		static Fixed max(Fixed const &first, Fixed const &second);
+		static Fixed& max(Fixed &first, Fixed &second);
+		static Fixed min(Fixed const &first, Fixed const &second);
+		static Fixed& min(Fixed &first, Fixed &second);
 	};
 
 std::ostream& operator<<(std::ostream &os, Fixed const &ref);
-
-// pré-incrémentation
-//int operator++(Fixed const &first, Fixed const &second);
-// post-incrémentation
-// pré-décrémentation
-// post-décrémentation
 #endif

@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 14:06:27 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/04 12:43:46 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:18:03 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,24 @@ int arithmetics_operators( void )
 	return (0);
 }
 
-int main( void ) 
+void my_tests( void )
 {
-	Fixed const a(10 );
-	Fixed const b( 10 );
-
 	if (comparaison_operators())
 		std::cout << "ERROR COMPARAISON" << std::endl;
 	if (arithmetics_operators())
 		std::cout << "ERROR ARITHMETICS" << std::endl;
+}
+
+int main( void ) 
+{
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }
