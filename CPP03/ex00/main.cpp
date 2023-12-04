@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:21:39 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/04 16:12:37 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:45:23 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,8 @@ int	main ( void )
 	Megatron.attack("OPTIMUS_PRIME");
 	Megatron.beRepaired(2);
 	Megatron.attack("OPTIMUS_PRIME");
+	Optimus_prime.takeDamage(10);
+	Optimus_prime.beRepaired(10);
+	Optimus_prime.takeDamage(10);
 	return (0);
 }

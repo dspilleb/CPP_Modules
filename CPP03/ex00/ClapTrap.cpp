@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:49:56 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/04 16:31:07 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:53:47 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,13 @@ void ClapTrap::attack(const std::string& target)
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	this->hit_points -= amount;
+	if (this->hit_points < 1)
+		std::cout << BBLACK << this->name << ": " << ORANGE << "Dead ClapTrap cannot take damage" << NONE << std::endl;
+	else
+	{
+		this->hit_points -= amount;
+		std::cout << BBLACK << this->name << ": " << ORANGE << "lost " << amount << " hit point(s)" << std::endl;
+	}
 	return;
 }
 void ClapTrap::beRepaired(unsigned int amount)
@@ -91,7 +97,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	{
 		this->energy_points--;
 		this->hit_points += amount;
-		std::cout << MAGENTA << this->name << ": " << "repaired " << amount << " hit points, it has now " << this->hit_points << " hit points" << NONE << std::endl;
+		std::cout << MAGENTA << this->name << ": " << "repaired " << amount << " hit points, it now has " << this->hit_points << " hit points" << NONE << std::endl;
 	}
 	return;
 }
