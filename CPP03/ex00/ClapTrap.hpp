@@ -10,8 +10,8 @@
 # define BLUE "\033[1;34m"
 # define YELLOW "\033[1;33m"
 # define RED "\033[1;31m"
-# define BWHITE "\033[1;37m";
-# define BBLACK "\033[1;30m";
+# define BWHITE "\033[1;37m"
+# define BBLACK "\033[1;30m"
 # define MAGENTA "\033[1;35m"
 
 class ClapTrap
