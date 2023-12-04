@@ -6,26 +6,60 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 14:06:27 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/04 11:23:51 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:18:03 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+int comparaison_operators( void )
+{
+	Fixed const b( 10 );
+
+	if (!(b > 9) || !(b < 11) || b < 9 || b > 10)
+		return(1);
+	if (!(b <= 10) || !(b >= 10))
+		return (1);
+	if (b != 10 || !(b == 10) || !(b != 9) || b == 11)
+		return (1);
+	return (0);
+}
+
+int arithmetics_operators( void )
+{
+	Fixed const a (5);
+
+	if (a + 2 != 7)
+		return (1);
+	if (a - 2 != 3)
+		return (1);
+	if (a / 2 != 2.5f)
+		return (1);
+	if (a * 2 != 10)
+		return (1);
+	if ((a * 2) / 2 != 5)
+		return (1);
+	return (0);
+}
+
+void my_tests( void )
+{
+	if (comparaison_operators())
+		std::cout << "ERROR COMPARAISON" << std::endl;
+	if (arithmetics_operators())
+		std::cout << "ERROR ARITHMETICS" << std::endl;
+}
+
 int main( void ) 
 {
 	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
-	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }
