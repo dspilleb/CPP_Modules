@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 14:06:27 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/04 12:30:31 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:43:46 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,10 @@ int comparaison_operators( void )
 {
 	Fixed const b( 10 );
 
-	if (!(b > 9) || !(b >= 10))
+	if (!(b > 9) || !(b < 11) || b < 9 || b > 10)
 		return(1);
-
-	if (!(b <= 10) || !(b < 11))
+	if (!(b <= 10) || !(b >= 10))
 		return (1);
-
-	if (b < 9 || b > 10)
-		return (1);
-
 	if (b != 10 || !(b == 10) || !(b != 9) || b == 11)
 		return (1);
 	return (0);
@@ -32,7 +27,8 @@ int comparaison_operators( void )
 
 int arithmetics_operators( void )
 {
-	Fixed a (5);
+	Fixed const a (5);
+
 	if (a + 2 != 7)
 		return (1);
 	if (a - 2 != 3)

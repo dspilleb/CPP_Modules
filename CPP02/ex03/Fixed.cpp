@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 14:06:31 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/04 12:30:17 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:42:08 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,60 +88,60 @@ std::ostream& operator<<(std::ostream &os, Fixed const &ref)
 	return (os);
 }
 
-int operator>(Fixed const &first, Fixed const &second)
+bool Fixed::operator>(Fixed const &second) const
 {
-	return (first.getRawBits() > second.getRawBits());
+	return (this->getRawBits() > second.getRawBits());
 }
 
-int operator<(Fixed const &first, Fixed const &second)
+bool Fixed::operator<(Fixed const &second) const
 {
-	return (first.getRawBits() < second.getRawBits());
+	return (this->getRawBits() < second.getRawBits());
 }
 
-int operator>=(Fixed const &first, Fixed const &second)
+bool Fixed::operator>=(Fixed const &second) const
 {
-	return (first.getRawBits() >= second.getRawBits());
+	return (this->getRawBits() >= second.getRawBits());
 }
 
-int operator<=(Fixed const &first, Fixed const &second)
+bool Fixed::operator<=(Fixed const &second) const
 {
-	return (first.getRawBits() <= second.getRawBits());
+	return (this->getRawBits() <= second.getRawBits());
 }
 
-int operator==(Fixed const &first, Fixed const &second)
+bool Fixed::operator==(Fixed const &second) const
 {
-	return (first.getRawBits() == second.getRawBits());
+	return (this->getRawBits() == second.getRawBits());
 }
 
-int operator!=(Fixed const &first, Fixed const &second)
+bool Fixed::operator!=(Fixed const &second) const
 {
-	return (first.getRawBits() != second.getRawBits());
+	return (this->getRawBits() != second.getRawBits());
 }
 
-Fixed operator+(Fixed const &first, Fixed const &second)
+Fixed Fixed::operator+(Fixed const &second) const
 {
 	Fixed result;
-	result.setRawBits(first.getRawBits() + second.getRawBits());
+	result.setRawBits(this->getRawBits() + second.getRawBits());
 	return (result);
 }
 
-Fixed operator-(Fixed const &first, Fixed const &second)
+Fixed Fixed::operator-(Fixed const &second) const
 {
 	Fixed result;
-	result.setRawBits(first.getRawBits() - second.getRawBits());
+	result.setRawBits(this->getRawBits() - second.getRawBits());
 	return (result);
 }
 
-Fixed operator/(Fixed const &first, Fixed const &second)
+Fixed Fixed::operator/(Fixed const &second) const
 {
-	float val = first.toFloat() / second.toFloat();
+	float val = this->toFloat() / second.toFloat();
 	Fixed result (val);
 	return (result);
 }
 
-Fixed operator*(Fixed const &first, Fixed const &second)
+Fixed Fixed::operator*(Fixed const &second) const
 {
-	float val = first.toFloat() * second.toFloat();
+	float val = this->toFloat() * second.toFloat();
 	Fixed result (val);
 	return (result);
 }

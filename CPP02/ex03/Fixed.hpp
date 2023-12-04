@@ -22,25 +22,19 @@ class Fixed
 		float toFloat( void ) const;
 		int toInt( void ) const;
 		// Ajouter min/max
+		bool operator>(Fixed const &second) const;
+		bool operator<(Fixed const &second) const;
+		bool operator>=(Fixed const &second) const;
+		bool operator<=(Fixed const &second) const;
+		bool operator==(Fixed const &second) const;
+		bool operator!=(Fixed const &second) const;
+		Fixed operator+(Fixed const &second) const;
+		Fixed operator-(Fixed const &second) const;
+		Fixed operator*(Fixed const &second) const;
+		Fixed operator/(Fixed const &second) const;
 	};
 
 std::ostream& operator<<(std::ostream &os, Fixed const &ref);
-
-int operator>(Fixed const &first, Fixed const &second);
-int operator<(Fixed const &first, Fixed const &second);
-int operator>=(Fixed const &first, Fixed const &second);
-int operator<=(Fixed const &first, Fixed const &second);
-int operator==(Fixed const &first, Fixed const &second);
-int operator!=(Fixed const &first, Fixed const &second);
-
-// +
-Fixed operator+(Fixed const &first, Fixed const &second);
-// -
-Fixed operator-(Fixed const &first, Fixed const &second);
-// *
-Fixed operator*(Fixed const &first, Fixed const &second);
-// /
-Fixed operator/(Fixed const &first, Fixed const &second);
 
 // pré-incrémentation
 //int operator++(Fixed const &first, Fixed const &second);
