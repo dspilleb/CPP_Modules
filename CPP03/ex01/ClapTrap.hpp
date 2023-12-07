@@ -30,7 +30,6 @@ class ClapTrap
 		~ClapTrap( void );
 
 		ClapTrap &		operator=( ClapTrap const & rhs );
-		//TODO Do I really have to use virtual ? isn't that polymorphism ?
 		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
