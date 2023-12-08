@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:49:56 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/04 21:21:30 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:23:16 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ ClapTrap::ClapTrap( void ) : name("Default"), hit_points ( 10 ), energy_points (
 
 ClapTrap::ClapTrap(std::string given_name) : name(given_name), hit_points ( 10 ), energy_points ( 10 ), attack_damage ( 0 )
 {
-	std::cout << GREEN << "Name constructor called" << NONE << std::endl;
+	std::cout << GREEN << "ClapTrap: Name constructor called" << NONE << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & src )
 {
-	std::cout << GREEN << "Copy constructor called" << NONE << std::endl;
+	std::cout << GREEN << "ClapTrap: Copy constructor called" << NONE << std::endl;
 	this->name = src.name;
 	this->energy_points = src.energy_points;
 	this->hit_points = src.hit_points;
@@ -45,7 +45,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 {
-	std::cout << GREEN << "Copy assignment operator called" << NONE << std::endl;
+	std::cout << GREEN << "ClapTrap: Copy assignment operator called" << NONE << std::endl;
 	if ( this != &rhs )
 	{
 		this->name = rhs.attack_damage;

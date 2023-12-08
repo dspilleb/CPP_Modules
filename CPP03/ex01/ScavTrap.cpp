@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 20:47:52 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/07 12:05:18 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:32:17 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,33 @@ void ScavTrap::attack(const std::string& target)
 std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
 {
 	(void)i;
-	o << "ScavTrap";
 	return o;
 }
 
 void ScavTrap::guardGate()
 {
-	std::cout << BBLACK "ScavTrap " << this->name << ": " GREEN "GUARDGATE MODE ACTIVATED" NONE << std::endl;
+	std::cout << BBLACK "ScavTrap " << this->name << ": " YELLOW "GUARDGATE MODE ACTIVATED" NONE << std::endl;
+}
+
+
+ScavTrap::ScavTrap( ScavTrap const & src ) : ClapTrap(src)
+{
+	std::cout << GREEN << "ScavTrap: Copy constructor called" << NONE << std::endl;
+	this->name = src.name;
+	this->hit_points = src.hit_points;
+	this->energy_points = src.energy_points;
+	this->attack_damage = src.attack_damage;
+}
+
+ScavTrap &		ScavTrap::operator=( ScavTrap const & rhs )
+{
+	std::cout << GREEN << "ScavTrap: Copy assignment operator called" << NONE << std::endl;
+	if (this != &rhs)
+	{
+		this->name = rhs.name;
+		this->hit_points = rhs.hit_points;
+		this->energy_points = rhs.energy_points;
+		this->attack_damage = rhs.attack_damage;
+	}
+	return *this;
 }

@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:21:39 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/07 12:06:50 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:26:00 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	main ( void )
 	test2.beRepaired(2);
 	test.guardGate();
 	test.takeDamage(1);
-	ScavTrap test3 = test;
+	ScavTrap test3;
+	test3 = test;
 	test3.beRepaired(1);
 	test.beRepaired(1);
 	return (0);
