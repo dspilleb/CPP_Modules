@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:50:20 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/08 12:01:51 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/09 14:12:07 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ FragTrap::FragTrap(std::string given_name)
 	return;
 }
 
-FragTrap::FragTrap( const FragTrap & src ) : ClapTrap()
+FragTrap::FragTrap( const FragTrap & src ) : ClapTrap(src)
 {
 	std::cout << GREEN << "FragTrap: Copy constructor called" << NONE << std::endl;
 	this->name = src.name;

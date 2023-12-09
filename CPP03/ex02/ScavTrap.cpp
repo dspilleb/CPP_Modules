@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 20:47:52 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/08 12:01:11 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/09 14:11:55 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void ScavTrap::guardGate()
 }
 
 
-ScavTrap::ScavTrap( ScavTrap const & src ) : ClapTrap()
+ScavTrap::ScavTrap( ScavTrap const & src ) : ClapTrap(src)
 {
 	std::cout << GREEN << "ScavTrap: Copy constructor called" << NONE << std::endl;
 	this->name = src.name;
