@@ -6,24 +6,47 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:21:39 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/04 16:45:23 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:57:37 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+using std::cout;
+using std::endl;
+
+
+void test_death( void )
+{
+	cout << "----TEST DEATH----" << std::endl;
+	ClapTrap test_death ("test_death");
+
+	test_death.takeDamage(10);
+	test_death.attack("42");
+	test_death.beRepaired(19);
+	test_death.takeDamage(19);
+	cout << "------------------" << std::endl;
+}
+
+void test_energy( void )
+{
+	cout << "----TEST ENERGY----" << std::endl;
+	ClapTrap test_energy ("test_energy");
+
+	for (int i = 0; i < 11; i++)
+		test_energy.attack("test_energy");
+	test_energy.beRepaired(1);
+	cout << "------------------" << std::endl;
+}
+
 int	main ( void )
 {
-	ClapTrap Optimus_prime ("OPTIMUS_PRIME");
-	ClapTrap Megatron ("MEGATRON");
-
-	Optimus_prime.attack("MEGATRON");
-	Megatron.takeDamage(9);
-	Megatron.attack("OPTIMUS_PRIME");
-	Megatron.beRepaired(2);
-	Megatron.attack("OPTIMUS_PRIME");
-	Optimus_prime.takeDamage(10);
-	Optimus_prime.beRepaired(10);
-	Optimus_prime.takeDamage(10);
+	test_death();
+	test_energy();
+	cout << "TESTS CANONICAL METHODS" << endl;
+	ClapTrap no_name;
+	ClapTrap name ("name");
+	no_name = name;
+	ClapTrap copy (name);
 	return (0);
 }
