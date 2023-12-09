@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:46:49 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 10:13:42 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/09 10:20:30 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class PhoneBook{
 		int number;
 		std::string info_text[5];
 		Contact contacts[8];
-	public:
 		std::string norm( std::string );
+	public:
 		void add( void );
 		void search( void );
 		void display( void );
