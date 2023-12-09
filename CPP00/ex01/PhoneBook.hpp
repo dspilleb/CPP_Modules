@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:46:49 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/11/08 09:41:52 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/09 10:13:42 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,6 @@
 # include <iostream>
 # include <sstream>
 
-
-# define GREEN "\033[1;32m"
-# define ORANGE "\033[1;33m"
-# define NONE "\033[0m"
-# define BLUE "\033[1;34m"
-# define YELLOW "\033[1;33m"
-# define RED "\033[1;31m"
-# define BWHITE "\033[1;37m";
-# define BBLACK "\033[1;30m";
-# define MAGENTA "\033[1;35m"
 # define LEN 10
 
 class PhoneBook{

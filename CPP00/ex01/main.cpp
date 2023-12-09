@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:25:30 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/11/08 09:43:40 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/09 10:15:50 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int main()
 	std::string buffer;
 	PhoneBook tel;
 
-	std::cout << BLUE "You have 3 commands : ADD | SEARCH | EXIT" NONE << std::endl;
+	cout << BLUE "You have 3 commands : ADD | SEARCH | EXIT" NONE << endl;
 	while (1)
 	{
-		std::cout << ">> " << std::flush;
+		cout << ">> " << std::flush;
 		if (!std::getline(std::cin, buffer) || buffer.compare("EXIT") == 0)
 		{
-			std::cout << BLUE "\n-------------\n| You Exited |\n-------------" NONE << std::endl;
+			cout << BLUE "\n-------------\n| You Exited |\n-------------" NONE << endl;
 			return (0);
 		}
 		if (buffer.compare("ADD") == 0)
