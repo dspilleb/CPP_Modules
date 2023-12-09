@@ -3,8 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include "Animal.hpp"
 
-class Dog
+class Dog : public Animal
 {
 
 	public:
@@ -14,7 +15,7 @@ class Dog
 		~Dog();
 
 		Dog &		operator=( Dog const & rhs );
-
+		virtual void makeSound( void ) const;
 	private:
 
 };

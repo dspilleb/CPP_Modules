@@ -3,8 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include "Animal.hpp"
 
-class Cat
+class Cat : public Animal
 {
 
 	public:
@@ -14,6 +15,7 @@ class Cat
 		~Cat();
 
 		Cat &		operator=( Cat const & rhs );
+		virtual void makeSound( void ) const;
 
 	private:
 
