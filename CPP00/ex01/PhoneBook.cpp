@@ -6,15 +6,14 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:49:38 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 10:17:09 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/09 11:12:41 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void)
+PhoneBook::PhoneBook(void) : number_contacts (0)
 {
-	this->number = 0;
 	this->info_text[0] = "first name";
 	this->info_text[1] = "last name";
 	this->info_text[2] = "nickname";
@@ -30,47 +29,48 @@ PhoneBook::~PhoneBook(void)
 
 void	PhoneBook::add(void)
 {
-	int valid = 0;
-	int	flag;
+	int info_nmb = 0;
+	int	valid;
 	Contact c;
 	cout << YELLOW "-------\n| ADD |\n-------\n";
 	cout << "Please insert contact information\n" NONE << endl;
-	while (valid < 5)
+	std::string infos[5];
+	while (info_nmb < 5)
 	{
-	 	flag = 0;
+	 	valid = 1;
 		std::string buffer;
-		cout << info_text[valid] + " : ";
+		cout << info_text[info_nmb] + " : ";
 		if (!std::getline(std::cin, buffer))
 			return;
 		if (buffer.empty())
 		{
 			cout << RED "No field can be empty" NONE << endl;
-			flag = 1;
+			valid = 0;
 		}
-		else if (valid == 3)
+		else if (info_nmb == 3)
 		{
 			for (size_t i = 0; i < buffer.length(); i++)
 				if (buffer[i] < '0' || buffer[i] > '9')
-					flag = 1;
-			if (flag)
+					valid = 0;
+			if (!valid)
 				cout << RED "Please insert numbers only" NONE << endl;
 		}
-		if (!flag)
-			c.infos[valid++] = buffer;
+		if (valid)
+			infos[info_nmb++] = buffer;
 	}
-
-	if (this->number >= 8)
-		this->number = 0;
-	this->contacts[this->number] = c;
-	this->number++;
+	c.setInfos(infos);
+	if (this->number_contacts >= 8)
+		this->number_contacts = 0;
+	this->contacts[this->number_contacts] = c;
+	this->number_contacts++;
 }
 
-void	PhoneBook::search(void)
+void	PhoneBook::search(void) const
 {
 	std::string buffer;
 
 	cout << BLUE "----------\n| SEARCH |\n----------\n" NONE;
-	if (!this->number)
+	if (!this->number_contacts)
 	{
 		cout << BLUE "You have no contacts" NONE << endl;
 		return ;
@@ -89,26 +89,26 @@ void	PhoneBook::search(void)
 	}
 }
 
-std::string PhoneBook::norm(std::string str)
+std::string PhoneBook::norm(const std::string str) const
 {
-	std::string tmp = str;
+	std::string normed_str = str;
 
-	if (!tmp.empty() && tmp.length() > LEN)
+	if (!normed_str.empty() && normed_str.length() > LEN)
 	{
-		tmp.erase(LEN, tmp.length());
-		tmp[LEN - 1] = '.';
+		normed_str.erase(LEN, normed_str.length());
+		normed_str[LEN - 1] = '.';
 	}
 	else
-		tmp.insert(tmp.end(), (LEN - tmp.length()), ' ');
-	tmp.append(1, '|');
-	return (tmp);
+		normed_str.insert(normed_str.end(), (LEN - normed_str.length()), ' ');
+	normed_str.append(1, '|');
+	return (normed_str);
 }
 
-void	PhoneBook::display(void)
+void	PhoneBook::display(void) const
 {
 
 	std::string header;
-	header.append((4 * LEN) + 4, '-');
+	header.append((COLS * LEN) + COLS, '-');
 	cout << BBLACK << header + '\n';
 	cout << PhoneBook::norm("index") + PhoneBook::norm("first name") + PhoneBook::norm("last name") + PhoneBook::norm("nickname") + "\n";
 	cout << header + NONE + '\n';
@@ -116,12 +116,12 @@ void	PhoneBook::display(void)
 	for (int i = 0; i < 8; i++)
 	{
 		Contact c = this->contacts[i];
-		std::ostringstream index;
-		index << i;
-		cout << PhoneBook::norm(index.str());
+		std::ostringstream contact_index;
+		contact_index << i;
+		cout << PhoneBook::norm(contact_index.str());
 		for (int i = 0; i < 3; i++)
 		{
-			std::string tmp = PhoneBook::norm(c.infos[i]);
+			std::string tmp = PhoneBook::norm(c.getInfosAtIndex(i));
 			cout << tmp;
 		}
 		cout << endl;

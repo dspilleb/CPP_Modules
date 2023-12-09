@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:05:45 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 10:15:20 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/09 10:42:20 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,16 @@
 using std::cout;
 using std::endl;
 
-class Contact{
-
-public:
-	std::string infos[5];
-	void Display(void) const;
-	Contact(void);
-	~Contact(void);
+class Contact
+{
+	private:
+		std::string infos[5];
+	public:
+		Contact(void);
+		~Contact(void);
+		void Display(void) const;
+		std::string getInfosAtIndex(const int index) const;
+		void setInfos(const std::string given_infos[5]);
 };
 
 #endif
