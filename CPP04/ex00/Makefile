@@ -1,6 +1,6 @@
 NAME = main
 
-SRC = main.cpp Cat.cpp Dog.cpp Animal.cpp
+SRC = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
 
 GCC = c++ -std=c++98 -Wall -Wextra -Werror
 
