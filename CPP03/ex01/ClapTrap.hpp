@@ -27,8 +27,7 @@ class ClapTrap
 		ClapTrap( void );
 		ClapTrap( std::string given_name );
 		ClapTrap( ClapTrap const & src );
-		//TODO VIRTUAL DESTRUCTOR
-		~ClapTrap( void );
+		virtual ~ClapTrap( void );
 
 		ClapTrap &		operator=( ClapTrap const & rhs );
 		virtual void attack(const std::string& target);
