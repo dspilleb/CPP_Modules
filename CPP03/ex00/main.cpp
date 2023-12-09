@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:21:39 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 13:57:37 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/09 14:05:36 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,29 @@ using std::endl;
 void test_death( void )
 {
 	cout << "----TEST DEATH----" << std::endl;
-	ClapTrap test_death ("test_death");
+	{
+		ClapTrap test_death ("test_death");
 
-	test_death.takeDamage(10);
-	test_death.attack("42");
-	test_death.beRepaired(19);
-	test_death.takeDamage(19);
+		test_death.takeDamage(1);
+		test_death.attack("42");
+		test_death.takeDamage(9);
+		test_death.attack("42");
+		test_death.beRepaired(19);
+		test_death.takeDamage(19);
+	}
 	cout << "------------------" << std::endl;
 }
 
 void test_energy( void )
 {
 	cout << "----TEST ENERGY----" << std::endl;
-	ClapTrap test_energy ("test_energy");
+	{
+		ClapTrap test_energy ("test_energy");
 
-	for (int i = 0; i < 11; i++)
-		test_energy.attack("test_energy");
-	test_energy.beRepaired(1);
+		for (int i = 0; i < 11; i++)
+			test_energy.attack("test_energy");
+		test_energy.beRepaired(1);
+	}
 	cout << "------------------" << std::endl;
 }
 
