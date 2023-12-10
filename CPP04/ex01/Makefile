@@ -1,4 +1,4 @@
-NAME = main
+NAME = Animal
 
 SRC = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 

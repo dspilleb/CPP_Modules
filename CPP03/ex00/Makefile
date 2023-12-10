@@ -1,4 +1,4 @@
-NAME = main
+NAME = ClapTrap
 
 SRC = main.cpp ClapTrap.cpp
 

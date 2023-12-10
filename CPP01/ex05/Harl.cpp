@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:48:54 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/01 21:02:09 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:10:41 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,20 @@ Harl::~Harl ( void )
 
 void Harl::complain( std::string level )
 {
+	int has_complained = 0;
 	std::string complaints[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void (Harl::*func[]) ( void ) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 	for (size_t i = 0; i < complaints->length(); i++)
+	{
 		if (level == complaints[i])
+		{
 			(this->*func[i])();
+			has_complained = 1;
+		}
+	}
+	if (!has_complained)
+		std::cout << "[ CONFUSION ] \nWhat do you want ? Move on, I have things to do..." << std::endl;
 }
 
 void Harl::debug( void )

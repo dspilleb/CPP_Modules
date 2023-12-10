@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:20:04 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/11/20 17:34:42 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/10 19:57:07 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ Weapon::~Weapon( void )
 	return;
 }
 
-Weapon::Weapon( std::string set_type )
+Weapon::Weapon( const std::string set_type )
 {
 	this->type = set_type;
 	return;
 }
 
-const std::string& Weapon::getType( void )
+const std::string& Weapon::getType( void ) const
 {
 	return (this->type);
 }
 
-void Weapon::setType( std::string new_type )
+void Weapon::setType( const std::string new_type )
 {
 	this->type = new_type;
 	return;

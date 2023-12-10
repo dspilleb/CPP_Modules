@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:11:31 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/11/20 15:22:09 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/10 19:53:18 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	int N = -1;
+	int N = 5;
 
 	Zombie* Horde = zombieHorde(N, "zombie_name");
 	for (int i = 0; i < N; i++)

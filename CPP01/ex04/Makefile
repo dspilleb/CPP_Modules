@@ -1,4 +1,4 @@
-NAME = main
+NAME = Replace
 
 SRC = main.cpp replace.cpp
 

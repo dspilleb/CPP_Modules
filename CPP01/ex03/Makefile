@@ -1,4 +1,4 @@
-NAME = main
+NAME = Weapon
 
 SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
