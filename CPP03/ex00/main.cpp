@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:21:39 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 14:05:36 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:33:40 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,11 @@ int	main ( void )
 {
 	test_death();
 	test_energy();
-	cout << "TESTS CANONICAL METHODS" << endl;
+	cout << "CANONICAL METHODS" << endl;
 	ClapTrap no_name;
 	ClapTrap name ("name");
 	no_name = name;
 	ClapTrap copy (name);
+	cout << copy << std::endl;
 	return (0);
 }

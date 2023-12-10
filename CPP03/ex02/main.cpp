@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:21:39 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 14:10:10 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:33:33 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,11 @@ int	main ( void )
 	test_death();
 	test_energy();
 	test_special_ability();
+	cout << "CANONICAL METHODS" << endl;
+	FragTrap no_name;
+	FragTrap name ("name");
+	no_name = name;
+	FragTrap copy (name);
+	cout << copy << std::endl;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:21:39 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 14:08:33 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:33:36 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,11 @@ int	main ( void )
 	test_death();
 	test_energy();
 	test_special_ability();
+	cout << "CANONICAL METHODS" << endl;
+	ScavTrap no_name;
+	ScavTrap name ("name");
+	no_name = name;
+	ScavTrap copy (name);
+	cout << copy << std::endl;
 	return (0);
 }
