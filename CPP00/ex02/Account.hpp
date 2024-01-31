@@ -11,9 +11,6 @@
 #pragma once
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
-# include <ctime>
-# include <iostream>
-# include <sstream>
 
 // ************************************************************************** //
 //                               Account Class                                //
@@ -49,7 +46,6 @@ private:
 	static int	_totalNbWithdrawals;
 
 	static void	_displayTimestamp( void );
-	static std::string int_to_string(const int val);
 
 	int				_accountIndex;
 	int				_amount;
