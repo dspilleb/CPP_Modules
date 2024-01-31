@@ -6,11 +6,12 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 08:37:48 by dspilleb          #+#    #+#             */
-/*   Updated: 2024/01/31 11:23:07 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:49:02 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <iomanip>
 #include <ctime>
 #include <iostream>
 #include <sstream>
@@ -123,9 +124,19 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	std::cout << "[";
-	std::cout << "19920104";
-	std::cout << "_";
-	std::cout << "091532";
-	std::cout << "]";
+	//Testing
+	// std::cout << "[19920104_091532]";
+    std::time_t currentTime = std::time(NULL);
+    std::tm* timeinfo = std::localtime(&currentTime);
+    std::stringstream ss;
+
+    ss << std::setw(4) << std::setfill('0') << timeinfo->tm_year + 1900;
+    ss << std::setw(2) << std::setfill('0') << timeinfo->tm_mon + 1;
+    ss << std::setw(2) << std::setfill('0') << timeinfo->tm_mday;
+
+    ss << "_";
+    ss << std::setw(2) << std::setfill('0') << timeinfo->tm_hour;
+    ss << std::setw(2) << std::setfill('0') << timeinfo->tm_min;
+    ss << std::setw(2) << std::setfill('0') << timeinfo->tm_sec;
+	std::cout << ss.str();
 }
