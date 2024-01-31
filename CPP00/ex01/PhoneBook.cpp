@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:49:38 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 11:12:41 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:32:58 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,14 @@ void	PhoneBook::add(void)
 					valid = 0;
 			if (!valid)
 				cout << RED "Please insert numbers only" NONE << endl;
+		}
+		for (size_t i = 0; i < buffer.length() && valid; i++)
+		{
+			if (static_cast<unsigned char>(buffer[i]) >= 128)
+			{
+				valid = 0;
+				cout << RED "Please insert ascii characters only" NONE << endl;
+			}
 		}
 		if (valid)
 			infos[info_nmb++] = buffer;
