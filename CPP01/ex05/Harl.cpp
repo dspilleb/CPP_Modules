@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:48:54 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/10 20:10:41 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:24:18 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ void Harl::warning( void )
 }
 void Harl::error( void )
 {
-	std::cout << "[ ERROR ] \nThis is unacceptable, I want to speak to the manager now" << std::endl;
+	std::cout << "[ ERROR ] \nThis is unacceptable, I want to speak to the manager now." << std::endl;
 	return;
 }
