@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:48:54 by dspilleb          #+#    #+#             */
-/*   Updated: 2024/02/12 12:24:12 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/02/13 10:51:42 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,10 @@ void Harl::complain( std::string level )
 	{
 		case 1:
 			debug();
-			info();
-			warning();
-			error();
-			break;
 		case 2:
 			info();
-			warning();
-			error();
-			break;
 		case 3:
 			warning();
-			error();
-			break;
 		case 4:
 			error();
 			break;
