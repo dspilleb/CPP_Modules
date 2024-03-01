@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 14:06:31 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/04 16:33:06 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/01 13:46:43 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Fixed::Fixed(const int init_val)
 
 Fixed::Fixed(const float init_val)
 {
-	std::cout << "float constructor called" << std::endl;
+	std::cout << "Float constructor called" << std::endl;
 	this->value = roundf(init_val * (1 << point_bit_position));
 	return ;
 }
