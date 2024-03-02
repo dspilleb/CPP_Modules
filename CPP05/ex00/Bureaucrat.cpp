@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/02 15:27:21 by dspilleb          #+#    #+#             */
+/*   Updated: 2024/03/02 15:27:22 by dspilleb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 /*
@@ -41,13 +53,13 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 {
 	if ( this != &rhs )
-		this->grade = rhs.getGrade();
+		this->grade = rhs.GetGrade();
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 {
-	o << i.getName() << ", bureaucrat grade " << i.getGrade() << ".";
+	o << i.GetName() << ", bureaucrat grade " << i.GetGrade() << ".";
 	return o;
 }
 
@@ -80,12 +92,12 @@ void Bureaucrat::decrement( void )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Bureaucrat::getName( void ) const
+std::string Bureaucrat::GetName( void ) const
 {
 	return (this->name);
 }
 
-int Bureaucrat::getGrade( void ) const
+int Bureaucrat::GetGrade( void ) const
 {
 	return (this->grade);
 }
