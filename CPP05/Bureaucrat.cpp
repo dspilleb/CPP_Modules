@@ -1,16 +1,5 @@
 #include "Bureaucrat.hpp"
 
-
-char *GradeTooHighException::what()
-{
-	return ("Grade is too High !!");
-}
-
-char *GradeTooLowException::what()
-{
-	return ("Grade is too low !!");
-}
-
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
@@ -31,6 +20,8 @@ Bureaucrat::Bureaucrat(std::string setname, int setgrade) : name(setname), grade
 
 Bureaucrat::Bureaucrat( const Bureaucrat & src )
 {
+	*this = src;
+	return;
 }
 
 
@@ -40,6 +31,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat & src )
 
 Bureaucrat::~Bureaucrat()
 {
+	return;
 }
 
 
@@ -51,7 +43,6 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->name = rhs.getName();
 		this->grade = rhs.getGrade();
 	}
 	return *this;
@@ -81,5 +72,20 @@ int Bureaucrat::getGrade( void ) const
 {
 	return (this->grade);
 }
+
+/*
+** --------------------------------- Exceptions ----------------------------------
+*/
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade is too High ! (above 1)");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade is too low ! (under 150)");
+}
+
 
 /* ************************************************************************** */
