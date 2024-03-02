@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:27:09 by dspilleb          #+#    #+#             */
-/*   Updated: 2024/03/02 16:00:01 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/02 16:16:43 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ Form &				Form::operator=( Form const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
-	o << i.GetName() << (i.GetSignedState() ? ", is signed, " : ", is not signed, ") ;
-	o << "required grade to sign : " << i.GetSignRequiredGrade();
-	o << "required grade to execute : " << i.GetExecRequiredGrade() << std::endl;
+	o << i.GetName() << (i.GetSignedState() ? ", is signed" : ", is not signed") ;
+	o << ", required grade to sign : " << i.GetSignRequiredGrade();
+	o << ", required grade to execute : " << i.GetExecRequiredGrade();
 	return o;
 }
 
