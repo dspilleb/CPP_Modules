@@ -10,7 +10,6 @@ class Bureaucrat
 	public:
 
 		//Constructors
-		Bureaucrat();
 		Bureaucrat(std::string name, int setgrade); // can throw
 		Bureaucrat( Bureaucrat const & src );
 
@@ -38,6 +37,7 @@ class Bureaucrat
 		};
 
 	private:
+		Bureaucrat();
 		std::string const name;
 		int grade;
 
