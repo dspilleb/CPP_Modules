@@ -9,7 +9,7 @@ Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 	return;
 }
 
-Bureaucrat::Bureaucrat(std::string setname, int setgrade) : name(setname), grade(setgrade)
+Bureaucrat::Bureaucrat(std::string setname, int setgrade): name(setname), grade(setgrade) 
 {
 	if (this->grade > 150)
 		throw GradeTooLowException();
@@ -41,9 +41,7 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 {
 	if ( this != &rhs )
-	{
 		this->grade = rhs.getGrade();
-	}
 	return *this;
 }
 
@@ -58,6 +56,25 @@ std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void Bureaucrat::increment( void )
+{
+	if (this->grade - 1 > 150)
+		throw GradeTooLowException();
+	else if (this->grade - 1 < 1)
+		throw GradeTooHighException();
+	this->grade--;
+	return;
+}
+
+void Bureaucrat::decrement( void )
+{
+	if (this->grade + 1 > 150)
+		throw GradeTooLowException();
+	else if (this->grade + 1 < 1)
+		throw GradeTooHighException();
+	this->grade++;
+	return;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
@@ -67,6 +84,7 @@ std::string Bureaucrat::getName( void ) const
 {
 	return (this->name);
 }
+
 int Bureaucrat::getGrade( void ) const
 {
 	return (this->grade);

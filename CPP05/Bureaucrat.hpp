@@ -9,14 +9,13 @@ class Bureaucrat
 
 	public:
 
-		//Constructors
-		Bureaucrat(std::string name, int setgrade); // can throw
+		Bureaucrat(std::string name, int setgrade);
 		Bureaucrat( Bureaucrat const & src );
 
 		~Bureaucrat();
-	
-		/*Increment and decrement grade --> Since grade 1 is the highest one and 150 the lowest,
-		incrementing a grade 3 should give a grade 2 to the bureaucrat.*/
+
+		void increment( void );
+		void decrement( void );
 
 		Bureaucrat &	operator=( Bureaucrat const & rhs );
 
@@ -24,13 +23,13 @@ class Bureaucrat
 		int				getGrade( void ) const;
 
 
-		class GradeTooHighException : std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				const char *what() const throw();
 		};
 
-		class GradeTooLowException : std::exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
 				const char *what() const throw();
