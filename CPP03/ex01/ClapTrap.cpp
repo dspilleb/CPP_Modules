@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:49:56 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 13:50:07 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:17:56 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->hit_points < 1)
-		std::cout << BBLACK << this->name << ": " << ORANGE << "Dead ClapTrap cannot take damage" << NONE << std::endl;
+		std::cout << BBLACK << this->name << ": " << ORANGE << "is dead and cannot take damage" << NONE << std::endl;
 	else
 	{
 		this->hit_points -= amount;
@@ -92,9 +92,9 @@ void ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->hit_points < 1)
-		std::cout << BBLACK << this->name << ": " << ORANGE << "Dead ClapTrap cannot make action" << NONE << std::endl;
+		std::cout << BBLACK << this->name << ": " << ORANGE << "is dead and cannot make action" << NONE << std::endl;
 	else if (this->energy_points < 1)
-		std::cout << BBLACK << this->name << ": " << YELLOW << "ClapTrap needs energy to make an action" << NONE << std::endl;
+		std::cout << BBLACK << this->name << ": " << YELLOW << " needs energy to make an action" << NONE << std::endl;
 	else
 	{
 		this->energy_points--;

@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:50:20 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 14:12:07 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:14:27 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,20 @@ std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+void FragTrap::attack(const std::string& target)
+{
+	if (this->hit_points < 1)
+		std::cout << BBLACK << this->name << ": " ORANGE "Dead FragTrap cannot make action" NONE << std::endl;
+	else if (this->energy_points < 1)
+		std::cout << BBLACK << this->name << ": " YELLOW"FragTrap needs energy to make an action" NONE << std::endl;
+	else
+	{
+		std::cout << BBLACK  "FragTrap " << this->name << NONE ": attacks " BLUE << target << RED " causing " << this->attack_damage << " points of damage!" NONE << std::endl;
+		this->energy_points--;
+	}
+	return;
+}
 
 
 void FragTrap::highFivesGuys(void)
