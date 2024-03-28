@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:05:06 by dspilleb          #+#    #+#             */
-/*   Updated: 2024/03/28 18:46:02 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/28 19:23:50 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,28 @@ int main()
 	{
     	std::cout << "\n*-*-*-*-*-*- CHECK_DEEPCOPY *-*-*-*-*-*-\n " << std::endl;
 		//check deepcopy
-		const Dog original;
-		original.my_brain->setBrainAtIndex("Oui", 0);
-		const Dog copy = original;
+		Dog original;
+		original.getbrain()->setBrainAtIndex("Oui", 0);
+		Dog copy = original;
 		std::cout << "*-*-BEFORE*-*-" << std::endl;
-		std::cout << "Original brain index 0: " << original.my_brain->getBrainAtIndex(0) <<  std::endl;
+		std::cout << "Original brain index 0: " << original.getbrain()->getBrainAtIndex(0) <<  std::endl;
 	
-		std::cout << "Copy brain index 0: " << copy.my_brain->getBrainAtIndex(0) <<  std::endl;
+		std::cout << "Copy brain index 0: " << copy.getbrain()->getBrainAtIndex(0) <<  std::endl;
 	
-		original.my_brain->setBrainAtIndex("Non", 0);
+		original.getbrain()->setBrainAtIndex("Non", 0);
 		std::cout << "*-*-AFTER*-*-" << std::endl;
-		std::cout << "Original brain index 0: " << original.my_brain->getBrainAtIndex(0) <<  std::endl;
-		std::cout << "Copy brain index 0: " << copy.my_brain->getBrainAtIndex(0) <<  std::endl;
+		std::cout << "Original brain index 0: " << original.getbrain()->getBrainAtIndex(0) <<  std::endl;
+		std::cout << "Copy brain index 0: " << copy.getbrain()->getBrainAtIndex(0) <<  std::endl;
 	}
 	{
 		std::cout << "\n*-*-*-*-*-*-  ACCESSORS TESTS *-*-*-*-*-*-\n " << std::endl;
-		const Dog original;
-		original.my_brain->getBrainAtIndex(12);
-		original.my_brain->getBrainAtIndex(-1);
-		original.my_brain->getBrainAtIndex(100);
-		original.my_brain->setBrainAtIndex("test", -1);
-		original.my_brain->setBrainAtIndex("test", 100);
+		Dog original;
+		original.getbrain()->getBrainAtIndex(12);
+		original.getbrain()->getBrainAtIndex(-1);
+		original.getbrain()->getBrainAtIndex(100);
+		original.getbrain()->setBrainAtIndex("test", -1);
+		original.getbrain()->setBrainAtIndex("test", 100);
 	}
-	// system("leaks Animal");
+	system("leaks Animal");
 	return 0;
 }
