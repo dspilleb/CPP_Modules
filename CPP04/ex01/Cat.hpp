@@ -22,6 +22,5 @@ class Cat : public Animal
 		Brain* my_brain;
 };
 
-std::ostream &			operator<<( std::ostream & o, Cat const & i );
 
 #endif /* ************************************************************* CAT_H */

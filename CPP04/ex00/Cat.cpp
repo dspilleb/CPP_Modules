@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:05:16 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 15:11:23 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:15:05 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,6 @@ Cat &				Cat::operator=( Cat const & rhs )
 		this->type = rhs.type;
 	}
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Cat const & i )
-{
-	(void)i;
-	return o;
 }
 
 

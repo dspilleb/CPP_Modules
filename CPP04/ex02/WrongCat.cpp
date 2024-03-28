@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:59:17 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 15:59:20 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:18:43 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,6 @@ WrongCat &				WrongCat::operator=( WrongCat const & rhs )
 		this->type = rhs.type;
 	}
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
-{
-	(void)i;
-	return o;
 }
 
 

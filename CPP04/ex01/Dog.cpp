@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:05:13 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 18:51:00 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:16:03 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,6 @@ Dog &				Dog::operator=( Dog const & rhs )
 		*(this->my_brain) = *rhs.my_brain;
 	}
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Dog const & i )
-{
-	(void)i;
-	return o;
 }
 
 
