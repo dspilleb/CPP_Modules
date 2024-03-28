@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:05:06 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 18:57:05 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/28 17:58:08 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int main()
 			else
 				arr[i] = new Dog();
 		}
-		for (int i = 0; i < size; i++)
-			delete arr[i];
+		delete[] arr;
 	}
 	{
 		//check leak
@@ -43,9 +42,12 @@ int main()
 		const Dog i;
 		i.my_brain->setBrainAtIndex("Oui", 0);
 		std::cout << i.my_brain->getBrainAtIndex(0) <<  std::endl;
+	
 		const Dog i_copy = i;
 		std::cout << i_copy.my_brain->getBrainAtIndex(0) <<  std::endl;
+	
 		i_copy.my_brain->setBrainAtIndex("Non", 0);
+	
 		std::cout << i.my_brain->getBrainAtIndex(0) <<  std::endl;
 		std::cout << i_copy.my_brain->getBrainAtIndex(0) <<  std::endl;
 	}
