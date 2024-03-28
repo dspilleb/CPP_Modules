@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:05:06 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 16:02:43 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:27:00 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int main()
 {
-	std::cout << "Normal" << std::endl;
+	std::cout << "\n*-*-*-*- Normal *-*-*-*- \n"<< std::endl;
 	{	
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
@@ -32,7 +32,7 @@ int main()
 		delete j;
 		delete i;
 	}
-	std::cout << RED "--------------\nWith wrong Animal\n--------------\n" << std::endl;
+	std::cout << RED "\n*-*-*-*-*-*-*-*- With wrong Animal *-*-*-**-*-*-*- \n" << std::endl;
 	{	
 		const WrongAnimal* i = new WrongCat();
 		std::cout << i->getType() << " " << std::endl;
