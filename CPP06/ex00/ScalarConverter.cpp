@@ -46,9 +46,28 @@ std::ostream &			operator<<( std::ostream & o, ScalarConverter const & i )
 
 void ScalarConverter::convert(const std::string literal)
 {
-	if (literal.find_first_not_of("0123456789.f") != std::string::npos)
-		return INVALID;
+	if (literal.length() == 1 && isprint(literal[0]))
+		convert_from_char(literal);
+	else if (literal.find_first_of('.f') == std::string::npos)
+		convert_from_int(literal);
+	else if (literal.find_
+}
 
+void convert_from_char(const std::string literal)
+{
+	return;
+}
+void convert_from_int(const std::string literal)
+{
+	return;
+}
+void convert_from_float(const std::string literal)
+{
+	return;
+}
+void convert_from_double(const std::string literal)
+{
+	return;
 }
 
 
