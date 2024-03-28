@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:05:06 by dspilleb          #+#    #+#             */
-/*   Updated: 2024/03/28 19:23:32 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/28 19:32:33 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,16 @@ int main()
 		std::cout << "*-*-AFTER*-*-" << std::endl;
 		std::cout << "Original brain index 0: " << original.getbrain()->getBrainAtIndex(0) <<  std::endl;
 		std::cout << "Copy brain index 0: " << copy.getbrain()->getBrainAtIndex(0) <<  std::endl;
+
+		std::cout << "\n*-*-*-*-*-*- CHECK_DEEPCOPY_SUITE *-*-*-*-*-*-\n " << std::endl;
+		{
+			Dog CheckCopy (original);
+		}
+		std::cout << "Original brain index 0: " << original.getbrain()->getBrainAtIndex(0) <<  std::endl; // Should not crash with deepcopy
+		{
+			Dog CheckCopy = original;
+		}
+		std::cout << "Original brain index 0: " << original.getbrain()->getBrainAtIndex(0) <<  std::endl; // Should not crash with deepcopy
 	}
 	{
 		std::cout << "\n*-*-*-*-*-*-  ACCESSORS TESTS *-*-*-*-*-*-\n " << std::endl;
