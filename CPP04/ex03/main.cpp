@@ -77,11 +77,46 @@ void inventory_tests( void )
     original.unequip(4); // should not crash
 }
 
+void MateriaSource_test( void )
+{
+    std::cout << "\n*-*-*-*-*-*- SOURCE_MATERIA_TEST *-*-*-*-*-*-\n " << std::endl;
+    AMateria* tmp;
+    IMateriaSource* src = new MateriaSource();
+
+    tmp = src->createMateria("ice"); // should be NULL
+    std::cout << "Should be 0 / NULL : " << tmp << std::endl;
+
+    tmp = src->createMateria("cure"); // should be NULL
+    std::cout << "Should be 0 / NULL : " << tmp << std::endl;
+
+    tmp = new Ice();
+    src->learnMateria(tmp);
+    tmp = new Cure();
+    src->learnMateria(tmp);
+    tmp = new Ice();
+    src->learnMateria(tmp);
+    tmp = new Cure();
+    src->learnMateria(tmp);
+    src->learnMateria(tmp); // Inventory should be full
+    {
+        tmp = src->createMateria("ice");
+        std::cout << "Should be 'ice': " << tmp->getType() << std::endl;
+        delete tmp; //since it's not stored in the inventory we must free ourselves
+    }
+    {
+        tmp = src->createMateria("cure");
+        std::cout << "Should be 'cure': " << tmp->getType() << std::endl;
+        delete tmp; //since it's not stored in the inventory we must free ourselves
+    }
+    delete src;
+}
+
 int main(void)
 {
     main_test();
     deep_copy_test();
     inventory_tests();
+    MateriaSource_test();
     std::cout << "\n*-*-*-*-*-*-*-*-*-*-*-*-\n" << std::endl;
     system("leaks Materia");
     return 0;
