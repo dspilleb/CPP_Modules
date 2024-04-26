@@ -130,7 +130,7 @@ void ScalarConverter::convert_from_double(const std::string &literal)
 	else
 	{
 		std::cout << "float: impossible" << std::endl;
-		std::cout << "double: " << (floor(double_conversion) == double_conversion ? ".0" : "") << double_conversion << std::endl;
+		std::cout << "double: " << double_conversion <<(floor(double_conversion) == double_conversion ? ".0" : "") << std::endl;
 	}
 	return;
 }
