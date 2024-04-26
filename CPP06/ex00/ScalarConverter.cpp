@@ -48,8 +48,8 @@ void ScalarConverter::convert(const std::string literal)
 	double_conversion = atof(literal.c_str());
 	is_round = floor(double_conversion) == double_conversion;
 
-	if (isinf(double_conversion) || isnan(double_conversion))
-		convert_from_double(literal);
+	if (literal != "0" && literal.length() > 1 && double_conversion == 0)
+		std::cout << "Wrong input format, please write a valid string representation of a C++ literal (char/int/float/double)" << std::endl;
 	else if (is_round && double_conversion > std::numeric_limits<char>::min() && double_conversion < std::numeric_limits<char>::max())
 		convert_from_char(literal);
 	else if (is_round && double_conversion > std::numeric_limits<int>::min() && double_conversion < std::numeric_limits<int>::max())
@@ -67,7 +67,10 @@ void ScalarConverter::convert_from_char(const std::string literal)
     float float_conversion;
     double double_conversion;
 
-	char_conversion = atoi(literal.c_str());
+	if (literal.length() > 1)
+		char_conversion = atoi(literal.c_str());
+	else
+		char_conversion = static_cast<char> (literal[0]);
     int_conversion = static_cast<int> (char_conversion);
     float_conversion = static_cast<float> (char_conversion);
     double_conversion = static_cast<double> (char_conversion);
@@ -78,8 +81,8 @@ void ScalarConverter::convert_from_char(const std::string literal)
 	else
 		std::cout << "Non displayable" << std::endl;
 	std::cout << "int: " << int_conversion << std::endl;
-	std::cout << "float: " << float_conversion << (floor(float_conversion) == float_conversion ? ".0" : "") << "f" <<std::endl;
-	std::cout << "double: " << double_conversion << (floor(double_conversion) == double_conversion ? ".0" : "") << std::endl;
+	std::cout << "float: " << float_conversion << ".0f" << std::endl;
+	std::cout << "double: " << double_conversion << ".0" << std::endl;
 	return;
 }
 void ScalarConverter::convert_from_int(const std::string literal)
@@ -94,8 +97,8 @@ void ScalarConverter::convert_from_int(const std::string literal)
     double_conversion = static_cast<double> (int_conversion);
 
 	std::cout << "int: " << int_conversion << std::endl;
-	std::cout << "float: " << float_conversion << (floor(float_conversion) == float_conversion ? ".0" : "") << "f" <<std::endl;
-	std::cout << "double: " << double_conversion <<(floor(double_conversion) == double_conversion ? ".0" : "") << std::endl;
+	std::cout << "float: " << float_conversion << ".0f" << std::endl;
+	std::cout << "double: " << double_conversion << ".0" << std::endl;
 
 	return;
 }
