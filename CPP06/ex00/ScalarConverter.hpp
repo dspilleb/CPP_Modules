@@ -16,11 +16,12 @@ class ScalarConverter
 		static void convert(const std::string literal);	
 		ScalarConverter &		operator=( ScalarConverter const & rhs );
 
-		static void convert_from_char(const std::string literal);
-		static void convert_from_int(const std::string literal);
-		static void convert_from_float(const std::string literal);
-		static void convert_from_double(const std::string literal);
 	private:
+		static void convert_from_char(const std::string &literal);
+		static void convert_from_int(const std::string &literal);
+		static void convert_from_float(const std::string &literal);
+		static void convert_from_double(const std::string &literal);
+		static bool is_valid_input (const std::string &literal);
 
 };
 

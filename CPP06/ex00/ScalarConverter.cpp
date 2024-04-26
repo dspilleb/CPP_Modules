@@ -48,7 +48,7 @@ void ScalarConverter::convert(const std::string literal)
 	double_conversion = atof(literal.c_str());
 	is_round = floor(double_conversion) == double_conversion;
 
-	if (literal != "0" && literal.length() > 1 && double_conversion == 0)
+	if (!is_valid_input(literal))
 		std::cout << "Wrong input format, please write a valid string representation of a C++ literal (char/int/float/double)" << std::endl;
 	else if (is_round && double_conversion > std::numeric_limits<char>::min() && double_conversion < std::numeric_limits<char>::max())
 		convert_from_char(literal);
@@ -60,17 +60,14 @@ void ScalarConverter::convert(const std::string literal)
 		convert_from_double(literal);
 }
 
-void ScalarConverter::convert_from_char(const std::string literal)
+void ScalarConverter::convert_from_char(const std::string &literal)
 {
     char char_conversion;
     int int_conversion;
     float float_conversion;
     double double_conversion;
 
-	if (literal.length() > 1)
-		char_conversion = atoi(literal.c_str());
-	else
-		char_conversion = static_cast<char> (literal[0]);
+	char_conversion = atoi(literal.c_str());
     int_conversion = static_cast<int> (char_conversion);
     float_conversion = static_cast<float> (char_conversion);
     double_conversion = static_cast<double> (char_conversion);
@@ -85,7 +82,7 @@ void ScalarConverter::convert_from_char(const std::string literal)
 	std::cout << "double: " << double_conversion << ".0" << std::endl;
 	return;
 }
-void ScalarConverter::convert_from_int(const std::string literal)
+void ScalarConverter::convert_from_int(const std::string &literal)
 {
     int int_conversion;
     float float_conversion;
@@ -103,7 +100,7 @@ void ScalarConverter::convert_from_int(const std::string literal)
 	return;
 }
 
-void ScalarConverter::convert_from_float(const std::string literal)
+void ScalarConverter::convert_from_float(const std::string &literal)
 {
     float float_conversion;
     double double_conversion;
@@ -117,7 +114,7 @@ void ScalarConverter::convert_from_float(const std::string literal)
 	std::cout << "double: " << double_conversion <<(floor(double_conversion) == double_conversion ? ".0" : "") << std::endl;
 	return;
 }
-void ScalarConverter::convert_from_double(const std::string literal)
+void ScalarConverter::convert_from_double(const std::string &literal)
 {
     double double_conversion;
 
@@ -136,6 +133,31 @@ void ScalarConverter::convert_from_double(const std::string literal)
 		std::cout << "double: " << (floor(double_conversion) == double_conversion ? ".0" : "") << double_conversion << std::endl;
 	}
 	return;
+}
+
+bool ScalarConverter::is_valid_input (const std::string &literal)
+{
+	int point_indx = -1;
+	if (literal == "inf" || literal == "+inf" || literal == "-inf" || 
+		literal == "inff" || literal == "+inff" || literal == "-inff" ||
+		literal == "nan" || literal == "nanf")
+		return (true);
+
+	for (size_t i = 0; i < literal.length(); i++)
+	{
+		if (!isdigit(literal[i]))
+		{
+			if (literal[i] == '-' && i == 0);
+			else if (literal[i] == 'f' && i == (literal.length() - 1));
+			else if (literal[i] == '.' && point_indx < 0 && i != 0 && i != (literal.length() - 1))
+			{
+				point_indx = i;
+			}
+			else
+				return (false);
+		}
+	}
+	return (true);
 }
 
 
