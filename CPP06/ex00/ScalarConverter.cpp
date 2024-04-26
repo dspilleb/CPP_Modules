@@ -149,7 +149,7 @@ bool ScalarConverter::is_valid_input (const std::string &literal)
 		{
 			if (literal[i] == '-' && i == 0);
 			else if (literal[i] == 'f' && i == (literal.length() - 1));
-			else if (literal[i] == '.' && point_indx < 0 && i != 0 && i != (literal.length() - 1))
+			else if (literal[i] == '.' && point_indx < 0 && literal.length() > 1)
 			{
 				point_indx = i;
 			}
