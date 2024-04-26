@@ -1,6 +1,6 @@
 NAME = ScalarConverter
 
-SRC = main.cpp
+SRC = main.cpp ScalarConverter.cpp
 
 GCC = c++ -std=c++98 -Wall -Wextra -Werror
 
