@@ -3,19 +3,20 @@
 int main(void)
 {
 	Data Input = {5, "Input"};
-	Data *Output;
+	Data* OriginalPointer = &Input;
+	Data *OutputPointer;
 	uintptr_t Data_Serialized;
 
-	std::cout << "Input structure:\n- value: " << Input.value << "\n- name: " << Input.name << std::endl;
-	Data_Serialized = Serializer::serialize(&Input);
+	std::cout << "OrginalPointer: " << OriginalPointer << std::endl;
+
+	Data_Serialized = Serializer::serialize(OriginalPointer);
 	std::cout << "Data_Serialized: " << Data_Serialized << std::endl;
 
-	Output = Serializer::deserialize(Data_Serialized);
-	std::cout << "Output structure:\n- value: " << Output->value << "\n- name: " << Output->name << std::endl;
+	OutputPointer = Serializer::deserialize(Data_Serialized);
+	std::cout << "OutputPointer: " << OutputPointer << std::endl;
 
-	std::cout << "----------------------------\n" << std::endl;
-	Input.name = "ChangedName";
-	std::cout << "Input structure:\n- value: " << Input.value << "\n- name: " << Input.name << std::endl;	
-	std::cout << "Output structure:\n- value: " << Output->value << "\n- name: " << Output->name << std::endl;
+	if (OutputPointer != OriginalPointer)
+		std::cout << "ERROR" << std::endl;
+	
 	return (0);
 }
