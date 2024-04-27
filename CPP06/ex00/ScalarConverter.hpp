@@ -4,6 +4,10 @@
 # include <iostream>
 # include <string>
 # include <climits>
+# include <limits>
+# include <cstdlib>
+# include <cfloat>
+# include <cmath>
 
 class ScalarConverter
 {
