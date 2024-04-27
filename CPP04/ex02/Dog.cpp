@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:05:13 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 18:51:00 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/28 19:19:20 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,6 @@ Dog &				Dog::operator=( Dog const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Dog const & i )
-{
-	(void)i;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -78,5 +72,9 @@ void Dog::makeSound() const
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+Brain *Dog::getbrain( void )
+{
+	return (this->my_brain);
+}
 
 /* ************************************************************************** */

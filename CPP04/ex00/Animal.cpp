@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:05:20 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/12/09 15:10:41 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:14:53 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,6 @@ Animal &				Animal::operator=( Animal const & rhs )
 		this->type = rhs.type;
 	}
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
-{
-	(void)i;
-	return o;
 }
 
 

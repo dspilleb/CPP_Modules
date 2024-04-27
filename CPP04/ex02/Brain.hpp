@@ -4,7 +4,7 @@
 # include <iostream>
 # include <string>
 
-#include "Animal.hpp"
+# include "Animal.hpp"
 
 class Brain
 {
@@ -23,7 +23,5 @@ class Brain
 		std::string ideas[100];
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Brain const & i );
 
 #endif /* *********************************************************** BRAIN_H */

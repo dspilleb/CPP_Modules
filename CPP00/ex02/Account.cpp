@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 08:37:48 by dspilleb          #+#    #+#             */
-/*   Updated: 2024/01/31 11:49:02 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:20:40 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,13 +130,15 @@ void	Account::_displayTimestamp( void )
     std::tm* timeinfo = std::localtime(&currentTime);
     std::stringstream ss;
 
-    ss << std::setw(4) << std::setfill('0') << timeinfo->tm_year + 1900;
-    ss << std::setw(2) << std::setfill('0') << timeinfo->tm_mon + 1;
-    ss << std::setw(2) << std::setfill('0') << timeinfo->tm_mday;
+    ss << "[";
+    ss << std::setfill('0') << std::setw(4) << timeinfo->tm_year + 1900;
+    ss << std::setfill('0') << std::setw(2) << timeinfo->tm_mon + 1;
+    ss << std::setfill('0') << std::setw(2) << timeinfo->tm_mday;
 
     ss << "_";
-    ss << std::setw(2) << std::setfill('0') << timeinfo->tm_hour;
-    ss << std::setw(2) << std::setfill('0') << timeinfo->tm_min;
-    ss << std::setw(2) << std::setfill('0') << timeinfo->tm_sec;
+    ss << std::setfill('0') << std::setw(2) << timeinfo->tm_hour;
+    ss << std::setfill('0') << std::setw(2) << timeinfo->tm_min;
+    ss << std::setfill('0') << std::setw(2) << timeinfo->tm_sec;
+	ss << "]";
 	std::cout << ss.str();
 }

@@ -17,11 +17,10 @@ class Cat : public Animal
 
 		Cat &		operator=( Cat const & rhs );
 		virtual void makeSound( void ) const;
-
+		Brain* getbrain( void );
 	private:
 		Brain* my_brain;
 };
 
-std::ostream &			operator<<( std::ostream & o, Cat const & i );
 
 #endif /* ************************************************************* CAT_H */
