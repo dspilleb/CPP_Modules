@@ -4,12 +4,7 @@
 # include <iostream>
 # include <string>
 # include <stdint.h>
-
-typedef struct Data
-{
-	int value;
-	std::string name;
-} Data;
+# include "Data.hpp"
 
 class Serializer
 {
