@@ -14,24 +14,22 @@ YELLOW='\033[1;33m'
 
 
 %.o: %.cpp
-	@$(GCC) -c $
+	$(GCC) -o $@ -c $^
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(GCC) $(OBJ) -o $(NAME)
-	@echo $(GREEN)"- Compiled -"$(NONE)
-
-$(OBJ): $(SRC)
-	@$(GCC) -c $(SRC)
+	$(GCC) $(OBJ) -o $(NAME)
+	echo $(GREEN)"- Compiled -"$(NONE)
 
 clean:
-	@echo $(BLUE)"- cleaning -"$(NONE)
-	@rm -rf $(OBJ)
+	echo $(BLUE)"- cleaning -"$(NONE)
+	rm -rf $(OBJ)
 
 fclean: clean
-	@rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
+.SILENT: $(NAME) $(OBJ) clean fclean
