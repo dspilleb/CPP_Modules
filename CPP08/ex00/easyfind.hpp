@@ -15,7 +15,6 @@ typename T::const_iterator easyfind(const T & container, const int &find)
 		if (*it == find)
 			return (it);
 	return (ite);
-
 }
 
 #endif /* ******************************************************** EASYFIND_H */
