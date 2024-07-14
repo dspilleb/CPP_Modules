@@ -51,7 +51,7 @@ Span &				Span::operator=( Span const & rhs )
 
 void Span::addNumber(const int number_to_add)
 {
-	if (this->max_size <= this->List.size())
+	if (this->List.size() >= this->max_size)
 		throw std::length_error("Span cannot exceed set size");
 	this->List.push_back(number_to_add);
 }
