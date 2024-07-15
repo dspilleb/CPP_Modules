@@ -90,7 +90,7 @@ void read_input_file(std::string filename, std::map<std::string, float> data)
 		}
 		amount = atof((line.substr(pos + 2, line.size())).c_str());
 		date = line.substr(0, pos - 1);
-		if (amount < 0)
+		if (amount <= 0)
 			std::cerr << ERR_NEG << std::endl; 
 		else if (amount >= 1000|| std::isinf(amount))
 			std::cerr << ERR_LARGE << std::endl;
