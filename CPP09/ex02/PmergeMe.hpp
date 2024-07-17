@@ -1,7 +1,7 @@
 #ifndef PMERGE_ME_HPP
 # define PMERGE_ME_HPP
 # include <iostream>
-# include <vector>
+# include <deque>
 # include <list>
 # include <cerrno>
 # include <cstdlib>
@@ -15,8 +15,8 @@
 # define ERR_NUM "Error: Argument is not a positive integer => "
 
 bool str_to_int(int &result, const char *str);
-bool parse_args(std::vector<int> &v, std::list<int> &l, const int &ac, char ** &av);
-std::vector<int> Merge_Insertion_Sort_Vector_util(std::vector<int> v);
+bool parse_args(std::deque<int> &v, std::list<int> &l, const int &ac, char ** &av);
+std::deque<int> Merge_Insertion_Sort_deque(std::deque<int> v);
 
 template <typename InputIterator>
 
@@ -31,7 +31,5 @@ void print_container(InputIterator begin, InputIterator end)
 	}
 	std::cout << std::endl;
 }
-
-bool Dichotomic_insertion_Vector(std::vector<int> &v, int value);
 
 #endif 
