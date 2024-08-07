@@ -24,6 +24,7 @@ $(NAME): $(OBJ)
 clean:
 	echo $(BLUE)"- cleaning -"$(NONE)
 	rm -rf $(OBJ)
+	rm -rf *_shrubbery
 
 fclean: clean
 	rm -rf $(NAME)
