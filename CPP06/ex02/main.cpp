@@ -32,8 +32,10 @@ void identify(Base* p)
 		std::cout << "Type A !" << std::endl;
 	else if (dynamic_cast<B*>(p) != 0)
 		std::cout << "Type B !" << std::endl;
-	else
+	else if (dynamic_cast<C*>(p) != 0)
 		std::cout << "Type C !" << std::endl;
+	else
+		std::cout << "Pointer is Null" << std::endl;
 }
 
 void identify(Base& p)
