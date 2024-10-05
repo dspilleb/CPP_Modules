@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:27:09 by dspilleb          #+#    #+#             */
-/*   Updated: 2024/03/02 16:16:43 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/10/05 11:57:40 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,33 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form() : name("Default"), is_signed(false), sign_required_grade(150), exec_required_grade(150)
+Form::Form() : 
+_name("Default"), 
+_is_signed(false), 
+_sign_required_grade(150), 
+_exec_required_grade(150)
 {
 	return;
 }
 
-Form::Form( const Form & src ) : name(src.name), is_signed(src.is_signed), 
-sign_required_grade(src.sign_required_grade), exec_required_grade(src.exec_required_grade)
+Form::Form( const Form & src ) : 
+_name(src._name), 
+_is_signed(src._is_signed),  
+_sign_required_grade(src._sign_required_grade), 
+_exec_required_grade(src._exec_required_grade)
 {
 	return;
 }
 
-Form::Form(std::string set_name, bool set_signed_state, int set_sign_required_grade, int set_exec_required_grade) : name(set_name), is_signed(set_signed_state),
-sign_required_grade(set_sign_required_grade), exec_required_grade(set_exec_required_grade)
+Form::Form(std::string set_name, int set_sign_required_grade, int set_exec_required_grade) : 
+_name(set_name), 
+_is_signed(false), 
+_sign_required_grade(set_sign_required_grade), 
+_exec_required_grade(set_exec_required_grade)
 {
-	if ( this->exec_required_grade > 150 || this->sign_required_grade > 150)
+	if ( _exec_required_grade > 150 || _sign_required_grade > 150)
 		throw GradeTooLowException();
-	else if ( this->exec_required_grade < 1 || this->sign_required_grade < 1)
+	else if ( _exec_required_grade < 1 || _sign_required_grade < 1)
 		throw GradeTooHighException();
 	return;
 }
@@ -57,7 +67,7 @@ Form &				Form::operator=( Form const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->is_signed = rhs.is_signed;
+		_is_signed = rhs._is_signed;
 	}
 	return *this;
 }
@@ -77,35 +87,36 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 
 void Form::beSigned(const Bureaucrat& b)
 {
-	if (b.GetGrade() <= this->sign_required_grade)
-		this->is_signed = true;
+	if (b.GetGrade() <= _sign_required_grade)
+		_is_signed = true;
 	else
-		throw Form::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string	Form::GetName ( void ) const
+const std::string	&Form::GetName ( void ) const
 {
-	return (this->name);
+	return (_name);
 }
 
 bool		Form::GetSignedState ( void ) const
 {
-	return (this->is_signed);
+	return (_is_signed);
 }
 
 int			Form::GetSignRequiredGrade ( void ) const
 {
-	return (this->sign_required_grade);
+	return (_sign_required_grade);
 }
 
 int			Form::GetExecRequiredGrade ( void ) const
 {
-	return (this->exec_required_grade);
+	return (_exec_required_grade);
 }
+
 
 /*
 ** --------------------------------- Exceptions ----------------------------------
@@ -113,12 +124,13 @@ int			Form::GetExecRequiredGrade ( void ) const
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too High ! (above 1)");
+	return ("Grade is too High !");
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low ! (under 150)");
+	return ("Grade is too low !");
 }
+
 
 /* ************************************************************************** */
