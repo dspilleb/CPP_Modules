@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 13:28:54 by dspilleb          #+#    #+#             */
-/*   Updated: 2024/03/02 19:14:53 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/10/05 12:29:31 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,6 @@ int main(void)
 		std::cout << "\n*-*-*-*-*-* Robotomy test *-*-*-*-*-*\n";
 		RobotomyRequestForm Robotomty = RobotomyRequestForm("42");
 		Bureaucrat Member = Bureaucrat("19 member", 1);
-		Member.executeForm(Robotomty);
-		Member.executeForm(Robotomty);
-		Member.executeForm(Robotomty);
 		Member.executeForm(Robotomty);
 	}
 	{

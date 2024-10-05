@@ -20,12 +20,11 @@ class Bureaucrat
 		void decrement( void );
 		void signForm( AForm& f) const;
 		void executeForm(AForm const & form) const;
-
+	
 		Bureaucrat &	operator=( Bureaucrat const & rhs );
 
 		std::string		GetName( void ) const;
 		int				GetGrade( void ) const;
-
 
 		class GradeTooHighException : public std::exception
 		{
@@ -41,8 +40,8 @@ class Bureaucrat
 
 	private:
 		Bureaucrat();
-		std::string const name;
-		int grade;
+		std::string const _name;
+		int _grade;
 
 };
 

@@ -4,17 +4,20 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("Default", false, 72, 45), target("Default")
+RobotomyRequestForm::RobotomyRequestForm() : 
+AForm("Default", 72, 45), _target("Default")
 {
 	return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : AForm(src),  target(src.target)
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : 
+AForm(src),  _target(src._target)
 {
 	return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm ( std::string set_target ) : AForm("RobotomyRequestForm", false, 72, 45), target(set_target)
+RobotomyRequestForm::RobotomyRequestForm ( std::string set_target ) : 
+AForm("RobotomyRequestForm", 72, 45), _target(set_target)
 {
 	return;
 }
@@ -37,7 +40,7 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 {
 	if ( this != &rhs )
 	{
-		this->is_signed = rhs.is_signed;
+		_is_signed = _is_signed;
 	}
 	return *this;
 }
@@ -59,8 +62,9 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	this->CheckExecRequirements(executor);
 	std::cout << "Bzzzzzzzzzz";
+	srand(std::time(NULL));
 	if ((rand() % 2) == 0)
-		std::cout <<  this->target << " has been robotomized successfully" << std::endl;
+		std::cout <<  this->_target << " has been robotomized successfully" << std::endl;
 	else
 		std::cout << " robotomy failed" << std::endl;
 }
