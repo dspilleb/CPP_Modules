@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include <time.h>
 # include "AForm.hpp"
 # include <cstdlib>
 
@@ -21,7 +22,7 @@ class RobotomyRequestForm : public AForm
 
 	private:
 		RobotomyRequestForm();
-		const std::string	target;
+		const std::string	_target;
 
 };
 

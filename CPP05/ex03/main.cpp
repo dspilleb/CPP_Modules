@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 13:28:54 by dspilleb          #+#    #+#             */
-/*   Updated: 2024/08/07 14:57:03 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/10/05 12:39:26 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ int main(void)
 		RobotomyRequestForm Robotomty = RobotomyRequestForm("42");
 		Bureaucrat Member = Bureaucrat("19 member", 1);
 		Member.executeForm(Robotomty);
-		Member.executeForm(Robotomty);
-		Member.executeForm(Robotomty);
-		Member.executeForm(Robotomty);
 	}
 	{
 		std::cout << "\n*-*-*-*-*-* Robotomy test *-*-*-*-*-*\n";
@@ -54,12 +51,24 @@ int main(void)
 		Intern someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-		if (rrf) rrf->execute(Elon);
+		if (rrf) {	
+			rrf->execute(Elon);
+			delete rrf;
+		}
 		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
-		if (rrf) rrf->execute(Elon);
+		if (rrf) {	
+			rrf->execute(Elon);
+			delete rrf;
+		}
 		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		if (rrf) {	
+			rrf->execute(Elon);
+			delete rrf;
+		}
+
+		//doesn't exist 
+		rrf = someRandomIntern.makeForm("rfsdfs", "Bender");
 		if (rrf) rrf->execute(Elon);
 	}
-
 	return 0;
 }

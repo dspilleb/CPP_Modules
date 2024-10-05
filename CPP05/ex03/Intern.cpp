@@ -43,17 +43,13 @@ AForm *Intern::makeForm(const std::string type, const std::string target) const
 {
 	AForm *(*Constructors[NB_FORMS]) (const std::string) = {&AllocateForm<RobotomyRequestForm>, &AllocateForm<PresidentialPardonForm>, &AllocateForm<ShrubberyCreationForm>};
 	const std::string FormNames[NB_FORMS] = {"robotomy request", "presidential pardon", "shrubbery creation"};
-	int i = 0;
-	while (i < NB_FORMS)
-	{
-		if (type == FormNames[i])
-		{
+	for (int i = 0; i < NB_FORMS; i++) {
+		if (type == FormNames[i]){
 			std::cout << "Intern creates " << FormNames[i] << std::endl;
 			return (Constructors[i](target));
 		}
-		i++;
 	}
-	std::cout << "The Intern does not know the form \""<< type << "\"" <<std::endl; 
+	std::cout << "The Intern doesn't know the form \""<< type << "\"" <<std::endl; 
 	return (NULL);
 }
 

@@ -4,17 +4,20 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", false, 25, 5), target("Default")
+PresidentialPardonForm::PresidentialPardonForm() : 
+AForm("PresidentialPardonForm", 25, 5), _target("Default")
 {
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) : AForm(src),  target(src.target)
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) : 
+AForm(src),  _target(src._target)
 {
 	return;
 }
 
-PresidentialPardonForm::PresidentialPardonForm ( std::string set_target ) : AForm("PresidentialPardonForm", false, 25, 5), target(set_target)
+PresidentialPardonForm::PresidentialPardonForm ( std::string set_target ) : 
+AForm("PresidentialPardonForm", 25, 5), _target(set_target)
 {
 	return;
 }
@@ -37,7 +40,7 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 {
 	if ( this != &rhs )
 	{
-		this->is_signed = rhs.is_signed;
+		_is_signed = rhs._is_signed;
 	}
 	return *this;
 }
@@ -58,7 +61,7 @@ std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	this->CheckExecRequirements(executor);
-	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 	return;
 }
 

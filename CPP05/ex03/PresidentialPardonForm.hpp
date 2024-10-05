@@ -20,7 +20,7 @@ class PresidentialPardonForm : public AForm
 
 	private:
 		PresidentialPardonForm();
-		const std::string	target;
+		const std::string	_target;
 };
 
 std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i );

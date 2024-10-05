@@ -22,7 +22,7 @@ class ShrubberyCreationForm : public AForm
 
 	private:
 		ShrubberyCreationForm();
-		const std::string	target;
+		const std::string	_target;
 };
 
 std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
