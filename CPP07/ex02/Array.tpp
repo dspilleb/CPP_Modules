@@ -14,6 +14,8 @@ template <typename T>
 Array< T >::Array(unsigned int set_size) : _size(set_size)
 {
 	this->_elements = new T[this->_size];
+	for (unsigned int i = 0; i < set_size; i++)
+		_elements[i] = 0;
 }
 
 template <typename T> 
