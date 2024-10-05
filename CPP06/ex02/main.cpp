@@ -6,6 +6,7 @@
 
 Base * generate(void)
 {
+	srand(time(NULL));
 	int type = rand() % 3;
 
 	std::cout << "Generated: " << std::flush;
