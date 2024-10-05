@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:27:09 by dspilleb          #+#    #+#             */
-/*   Updated: 2024/10/05 12:10:36 by dspilleb         ###   ########.fr       */
+/*   Updated: 2024/10/05 18:41:26 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void AForm::beSigned(const Bureaucrat& b)
 
 void AForm::CheckExecRequirements ( const Bureaucrat& b ) const
 {
+	if (!_is_signed)
+		throw AForm::FormNotSignedException();
 	if (b.GetGrade() > _exec_required_grade)
 		throw AForm::GradeTooLowException();
 }
@@ -136,6 +138,11 @@ const char *AForm::GradeTooHighException::what() const throw()
 const char *AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low !");
+}
+
+const char *AForm::FormNotSignedException::what() const throw()
+{
+	return ("Form is not signed !");
 }
 
 
