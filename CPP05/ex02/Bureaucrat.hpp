@@ -6,6 +6,13 @@
 
 class AForm;
 
+# define R "\x1b[1;31m"
+# define G "\x1b[1;32m"
+# define B "\x1b[1;36m"
+# define Y "\x1b[1;33m"
+# define M "\x1b[1;35m"
+# define C "\x1b[0m"
+
 class Bureaucrat
 {
 
