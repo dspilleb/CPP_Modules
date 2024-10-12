@@ -10,6 +10,11 @@ void handle_token(const char token, std::stack<int> &s)
 	int value1;
 	int value2;
 
+	if (s.size() < 2)
+	{
+		std::cerr << "Illegal expression" << std::endl;
+		exit(1);
+	}
 	value2 = s.top();
 	s.pop();
 	value1 = s.top();
@@ -18,7 +23,15 @@ void handle_token(const char token, std::stack<int> &s)
 	if (token == '+') value1 += value2;
 	if (token == '*') value1 *= value2;
 	if (token == '-') value1 -= value2;
-	if (token == '/') value1 /= value2;
+	if (token == '/')
+	{
+		if (value2 == 0)
+		{
+			std::cerr << "Illegal Division by 0" << std::endl;
+			exit(1);
+		}
+		value1 /= value2;
+	}
 	s.push(value1);
 }
 
@@ -28,6 +41,11 @@ int calculate_expression(const std::string expression)
 	bool has_space = true;
 	int result;
 
+	if (expression.empty())
+	{
+		std::cerr << "Empty expression" << std::endl;
+		return (1);
+	}
 	for (size_t i = 0; i < expression.length(); i++)
 	{
 		if (expression[i] == ' ');
