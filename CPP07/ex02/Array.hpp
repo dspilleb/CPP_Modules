@@ -21,7 +21,7 @@ class Array
 
 	private:
 		T* _elements;
-		const unsigned int _size;
+		unsigned int _size;
 
 };
 

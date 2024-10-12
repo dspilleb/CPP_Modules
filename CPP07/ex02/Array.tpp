@@ -5,9 +5,9 @@
 */
 
 template <typename T> 
-Array< T >::Array( void ) : _size(0)
+Array< T >::Array( void ) : _size(0), _elements(NULL)
 {
-	this->_elements = NULL;
+	return;
 }
 
 template <typename T> 
@@ -17,12 +17,9 @@ Array< T >::Array(unsigned int set_size) : _size(set_size)
 }
 
 template <typename T> 
-Array< T >::Array( const Array< T > & src ) : _size(src._size)
+Array< T >::Array( const Array< T > & src ) : _elements(NULL), _size(src._size)
 {
-	this->_elements = new T[this->_size];
-	for (unsigned int i = 0; i < this->_size; i++)
-		this->_elements[i] = src._elements[i];
-
+	*this = src;
 }
 
 
@@ -33,7 +30,8 @@ Array< T >::Array( const Array< T > & src ) : _size(src._size)
 template <typename T> 
 Array< T >::~Array( void )
 {
-	delete[] this->_elements;
+	if (this->_elements)
+		delete[] this->_elements;
 }
 
 
@@ -46,8 +44,12 @@ Array< T > &				Array< T >::operator=( Array< T > const & rhs )
 {
 	if ( this != &rhs )
 	{
-		delete[] this->_elements;
-		*this = Array< T >(rhs);
+		if (this->_elements)
+			delete[] this->_elements;
+		this->_size = rhs.size();
+		this->_elements = new T[this->_size];
+		for (unsigned int i = 0; i < this->_size; i++)
+			this->_elements[i] = rhs._elements[i];
 	}
 	return *this;
 }

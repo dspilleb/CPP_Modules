@@ -29,6 +29,7 @@ int main(int, char**)
 	        return 1;
 	    }
 	}
+	std::cout << "Should print exceptions:" << std::endl;
 	try
 	{
 	    numbers[-2] = 0;
