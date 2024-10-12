@@ -57,7 +57,7 @@ std::ostream &			operator<<( std::ostream & o, Array< T > const & i )
 {
 	unsigned int size = i.size();
 	for (unsigned int indx; indx < size; indx++)
-		o << i[indx] << (indx != size - 1) ? " " : "";
+		o << i[indx] << ((indx != size - 1) ? (" ") : (""));
 	o << "\n";
 	return o;
 }
