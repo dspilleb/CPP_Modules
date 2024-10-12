@@ -50,11 +50,11 @@ void ScalarConverter::convert(const std::string literal)
 
 	if (!is_valid_input(literal))
 		std::cout << "Wrong input format, please write a valid string representation of a C++ literal (char/int/float/double)" << std::endl;
-	else if (is_round && double_conversion > std::numeric_limits<char>::min() && double_conversion < std::numeric_limits<char>::max())
+	else if (is_round && double_conversion >= std::numeric_limits<char>::min() && double_conversion <= std::numeric_limits<char>::max())
 		convert_from_char(literal);
-	else if (is_round && double_conversion > std::numeric_limits<int>::min() && double_conversion < std::numeric_limits<int>::max())
+	else if (is_round && double_conversion >= std::numeric_limits<int>::min() && double_conversion <= std::numeric_limits<int>::max())
 		convert_from_int(literal);
-	else if (double_conversion > std::numeric_limits<float>::min() && double_conversion < std::numeric_limits<float>::max())
+	else if (double_conversion >= std::numeric_limits<float>::min() && double_conversion <= std::numeric_limits<float>::max())
 		convert_from_float(literal);
 	else
 		convert_from_double(literal);
