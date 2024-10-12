@@ -10,7 +10,7 @@ void print_values(  X &x)
 
 int main( void ) 
 {
-	size_t size = 10;
+	const size_t size = 10;
 	int *array_int = new int[size];
 	float*array_float = new float[size];
 	char *array_char = new char[size];
