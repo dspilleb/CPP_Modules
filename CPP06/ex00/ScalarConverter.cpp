@@ -54,7 +54,7 @@ void ScalarConverter::convert(const std::string literal)
 		convert_from_char(literal);
 	else if (is_round && double_conversion >= std::numeric_limits<int>::min() && double_conversion <= std::numeric_limits<int>::max())
 		convert_from_int(literal);
-	else if (double_conversion >= std::numeric_limits<float>::min() && double_conversion <= std::numeric_limits<float>::max())
+	else if (double_conversion >= -std::numeric_limits<float>::max() && double_conversion <= std::numeric_limits<float>::max())
 		convert_from_float(literal);
 	else
 		convert_from_double(literal);
