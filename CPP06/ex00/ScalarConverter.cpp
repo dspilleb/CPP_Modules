@@ -1,5 +1,14 @@
 #include "ScalarConverter.hpp"
 
+static bool ft_isnan(double x) {
+	return x != x;
+}
+
+static bool ft_isinf(double x) {
+	return x == std::numeric_limits<double>::infinity() || 
+		x == -std::numeric_limits<double>::infinity();
+}
+
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
@@ -122,7 +131,7 @@ void ScalarConverter::convert_from_double(const std::string &literal)
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
 
-	if (isinf(double_conversion) || isnan(double_conversion))
+	if (ft_isinf(double_conversion) || ft_isnan(double_conversion))
 	{
 		std::cout << "float: " << (double_conversion > 0 ? "+" : "") << double_conversion << "f" << std::endl;
 		std::cout << "double: " << (double_conversion > 0 ? "+" : "") << double_conversion << std::endl;
