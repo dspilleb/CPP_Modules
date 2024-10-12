@@ -29,8 +29,8 @@ int main( void )
 	::iter(array_char, size, print_values<char>);
 	std::cout << std::endl;
 
-	delete array_int;
-	delete array_float;
-	delete array_char;
+	delete []array_int;
+	delete []array_float;
+	delete []array_char;
 	return 0;
 }
