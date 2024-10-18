@@ -43,14 +43,14 @@ void identify(Base& p)
 {
 	try
 	{ 
-		dynamic_cast<A&>(p);
+		(void)dynamic_cast<A&>(p);
 		std::cout << "Type A !" << std::endl;
 	}
 	catch (std::exception& E)
 	{
 		try
 		{
-			dynamic_cast<B&>(p);
+			(void)dynamic_cast<B&>(p);
 			std::cout << "Type B !" << std::endl;
 		}
 		catch(std::exception& E)

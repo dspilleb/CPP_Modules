@@ -1,5 +1,14 @@
 #include "ScalarConverter.hpp"
 
+static bool ft_isnan(double x) {
+	return x != x;
+}
+
+static bool ft_isinf(double x) {
+	return x == std::numeric_limits<double>::infinity() || 
+		x == -std::numeric_limits<double>::infinity();
+}
+
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
@@ -50,11 +59,11 @@ void ScalarConverter::convert(const std::string literal)
 
 	if (!is_valid_input(literal))
 		std::cout << "Wrong input format, please write a valid string representation of a C++ literal (char/int/float/double)" << std::endl;
-	else if (is_round && double_conversion > std::numeric_limits<char>::min() && double_conversion < std::numeric_limits<char>::max())
+	else if (is_round && double_conversion >= std::numeric_limits<char>::min() && double_conversion <= std::numeric_limits<char>::max())
 		convert_from_char(literal);
-	else if (is_round && double_conversion > std::numeric_limits<int>::min() && double_conversion < std::numeric_limits<int>::max())
+	else if (is_round && double_conversion >= std::numeric_limits<int>::min() && double_conversion <= std::numeric_limits<int>::max())
 		convert_from_int(literal);
-	else if (double_conversion > std::numeric_limits<float>::min() && double_conversion < std::numeric_limits<float>::max())
+	else if (double_conversion >= -std::numeric_limits<float>::max() && double_conversion <= std::numeric_limits<float>::max())
 		convert_from_float(literal);
 	else
 		convert_from_double(literal);
@@ -122,7 +131,7 @@ void ScalarConverter::convert_from_double(const std::string &literal)
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
 
-	if (isinf(double_conversion) || isnan(double_conversion))
+	if (ft_isinf(double_conversion) || ft_isnan(double_conversion))
 	{
 		std::cout << "float: " << (double_conversion > 0 ? "+" : "") << double_conversion << "f" << std::endl;
 		std::cout << "double: " << (double_conversion > 0 ? "+" : "") << double_conversion << std::endl;
