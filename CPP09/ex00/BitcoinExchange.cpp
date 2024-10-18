@@ -4,12 +4,18 @@
 static bool is_date_valid(std::string date)
 {
 	long year, month, day;
-	bool valid;
+	bool valid, leap_year;
 	if (sscanf(date.c_str(),"%ld-%ld-%ld", &year, &month, &day) != 3)
 		return (false);
-	valid = (year > 0 && (month > 0 && month <= 12) && (day > 0 && day <= 31));
+	valid = (year >= 0 && (month > 0 && month <= 12) && (day > 0 && day <= 31)); //basic first parsing
+	leap_year = (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
+	if (month == 2 && day > (leap_year ? 29 : 28))
+		valid = false;
+	if(month==4 || month==6 || month==9 || month==11)
+		if (day > 30) valid = false;
+
 	if(!valid)
-		std::cerr << ERR_DATE << date << std::endl;
+		std::cerr << "error => "<< date << std::endl;
 	return (valid);
 }
 
