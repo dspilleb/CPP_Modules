@@ -9,12 +9,8 @@
 template <typename T>
 typename T::const_iterator easyfind(const T & container, const int &find)
 {
-	typename T::const_iterator it;
-	typename T::const_iterator ite = container.end();
-	for (it = container.begin(); it != ite; ++it)
-		if (*it == find)
-			return (it);
-	return (ite);
+	typename T::const_iterator it = std::find(container.begin(), container.end(), find);
+	return (it);
 }
 
 #endif /* ******************************************************** EASYFIND_H */
