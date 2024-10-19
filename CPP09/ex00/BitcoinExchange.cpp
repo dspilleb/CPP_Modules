@@ -80,7 +80,7 @@ void read_input_file(std::string filename, std::map<std::string, float> data)
 
 	(void) data;
 	input.open(filename.c_str(), std::ifstream::in);
-	if (!input.is_open() || !input.good())
+	if (!input)
 	{
 		std::cerr << ERR_FILE << std::endl;
 		return;
