@@ -13,12 +13,15 @@ int main (int ac, char **av)
 {
 	std::deque<int> d;
 	std::vector<int> v;
+	std::deque<int> d;
+	std::vector<int> v;
 
 	if (ac <= 1)
 	{
 		std::cerr << ERR_ARG << std::endl;
 		return (-1);
 	}
+	if (!parse_args(d, v, ac, av))
 	if (!parse_args(d, v, ac, av))
 		return (-1);
 

@@ -7,7 +7,7 @@
 # include <cstdlib>
 # include <limits>
 # include <iterator>
-# include <algorithm> //TODO : remove after testing
+// # include <algorithm> //TODO : remove after testing
 # include <cmath>
 # include <utility>
 # include <vector>
@@ -24,7 +24,6 @@ std::vector<int> Merge_Insertion_Sort_vector(std::vector<int> v);
 template <typename InputIterator>
 void print_container(InputIterator begin, InputIterator end)
 {
-	
 	while (begin != end)
 	{
 		std::cout << *begin << " " << std::flush;

@@ -8,7 +8,7 @@
 # include <list>
 # include <cctype>
 # include <limits>
-# include <ranges>
+// # include <ranges> //for linux
 
 # define GREEN "\033[0;32m"
 # define ORANGE "\033[1;33m"

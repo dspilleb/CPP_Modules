@@ -19,6 +19,7 @@ bool str_to_int(int &result, const char *str)
 }
 
 bool parse_args(std::deque<int> &d, std::vector<int> &v, const int &ac, char ** &av)
+bool parse_args(std::deque<int> &d, std::vector<int> &v, const int &ac, char ** &av)
 {
 	int result;
 
