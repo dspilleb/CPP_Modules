@@ -10,17 +10,18 @@
 # include <algorithm> //TODO : remove after testing
 # include <cmath>
 # include <utility>
+# include <vector>
+# include <bits/stdc++.h>
 
 # define ERR_ARG "Error: Usage \"./PmergeMe <number_1> <number_2> ... <number_n>\" | <number_n> is a positive integer"
 # define ERR_NUM "Error: Argument is not a positive integer => "
 
 bool str_to_int(int &result, const char *str);
-bool parse_args(std::deque<int> &v, std::list<int> &l, const int &ac, char ** &av);
-std::deque<int> Merge_Insertion_Sort_deque(std::deque<int> v);
+bool parse_args(std::deque<int> &d, std::vector<int> &v, const int &ac, char ** &av);
+std::deque<int> Merge_Insertion_Sort_deque(std::deque<int> d);
+std::vector<int> Merge_Insertion_Sort_vector(std::vector<int> v);
 
 template <typename InputIterator>
-
-
 void print_container(InputIterator begin, InputIterator end)
 {
 	
