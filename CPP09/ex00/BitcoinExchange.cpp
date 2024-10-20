@@ -89,7 +89,7 @@ void read_input_file(std::string filename, std::map<std::string, float> data)
 	while (std::getline(input, line))
 	{
 		pos = line.find("|");
-		if (pos == std::string::npos)
+		if (pos == std::string::npos || pos + 2 >= line.size())
 		{
 			std::cerr << ERR_FORMAT << line << std::endl;
 			continue;
